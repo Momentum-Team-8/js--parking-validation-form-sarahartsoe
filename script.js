@@ -27,8 +27,8 @@ let error = document.createElement("div")
 form.addEventListener('input', event => {
 
 })
-function validateInput() {
-    if (nameInput.value === "") {
+function validateNameInput() {
+    if (nameInput.value === undefined) {
         console.log("input invalid")
         formIsValid = false
         document.querySelector("#name-field").classList.add('input-invalid')
@@ -38,7 +38,7 @@ function validateInput() {
 
 form.addEventListener('submit', event => {
     event.preventDefault()
-    validateInput()
+    validateNameInput()
 //     if (formIsValid === false) {
     
 // } else {
