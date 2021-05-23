@@ -16,9 +16,9 @@
 //output the total into the totalcost div
 
 const form = document.querySelector("#parking-form");
-console.log("form", form)
+// console.log("form", form)
 const nameInput = document.querySelector("#name-field");
-console.log("nameInput", nameInput)
+// console.log("nameInput", nameInput)
 
 let formIsValid; 
 
@@ -44,4 +44,22 @@ form.addEventListener('submit', event => {
 // } else {
 //     formIsValid = true
 // }
+})
+
+let carInput = document.querySelector("#car-field")
+
+form.addEventListener('input', event => {
+
+})
+function validateCarInput() {
+    if (carInput === undefined) {
+        console.log("input invalid")
+        formIsValid = false
+        document.querySelector("#car-field").classList.add('input-invalid')
+        document.querySelector("#car-field").appendChild(error).innerHTML = 'This field is required.'
+    }
+}
+form.addEventListener('submit', event => {
+    event.preventDefault()
+    validateCarInput
 })
