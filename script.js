@@ -19,10 +19,12 @@ const form = document.querySelector("#parking-form");
 // console.log("form", form)
 const nameInput = document.querySelector("#name-field");
 // console.log("nameInput", nameInput)
+let carInput = document.querySelector("#car-field");
+console.log("yearInput", carInput)
 
 let formIsValid; 
 
-let error = document.createElement("div")
+let error = document.createElement("div");
 
 form.addEventListener('input', event => {
 
@@ -33,12 +35,18 @@ function validateNameInput() {
         formIsValid = false
         document.querySelector("#name-field").classList.add('input-invalid')
         document.querySelector('#name-field').appendChild(error).innerHTML = 'This field is required.'
-    }
+    } 
 }
-
+//script.js:32 Uncaught ReferenceError: undefine is not defined
+// idateNameInput (script.js:32)at val
+// debugged above error
 form.addEventListener('submit', event => {
     event.preventDefault()
     validateNameInput()
+    validateCarInput()
+
+    //Uncaught ReferenceError: validateNameInput is not defined
+    // debugged above error
 //     if (formIsValid === false) {
     
 // } else {
@@ -46,20 +54,23 @@ form.addEventListener('submit', event => {
 // }
 })
 
-let carInput = document.querySelector("#car-field")
-
-form.addEventListener('input', event => {
-
-})
 function validateCarInput() {
     if (carInput === undefined) {
         console.log("input invalid")
         formIsValid = false
-        document.querySelector("#car-field").classList.add('input-invalid')
-        document.querySelector("#car-field").appendChild(error).innerHTML = 'This field is required.'
+        document.querySelector("#car-year").classList.add('input-invalid')
+        document.querySelector("#car-year").appendChild(error).innerHTML = 'This field is required.'
     }
 }
-form.addEventListener('submit', event => {
-    event.preventDefault()
-    validateCarInput
-})
+// form.addEventListener('submit', event => {
+//     event.preventDefault()
+//     validateCarInput
+// })
+
+// // function () {
+//     if () {
+
+//     } else {
+
+//     }
+// }
